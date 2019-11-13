@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="form-validation.css"/>
-<script type="text/javascript" src="form-validation.js"></script>
+<link rel="stylesheet" type="text/css" href="add_task.css"/>
+<script type="text/javascript" src="add_task.js"></script>
 </head>
 <div class="container">
     <div class="py-5 text-center">
@@ -159,9 +159,11 @@
                     <option>Family</option>
                 </select>
             </div>
-
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
+            <div class = "buttons row">
+                <input type="button" class="col-md-5 btn btn-primary btn-lg " value = "Back" onclick="back()"></button>
+                <button class="col-md-5 btn btn-primary btn-lg " type="submit">Save</button>
+            </div>
         </form>
     </div>
 

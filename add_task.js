@@ -32,3 +32,7 @@
   }, false)
 }())
 
+function back(){
+  window.location.href="calendar.html";
+}
+
