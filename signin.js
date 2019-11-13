@@ -13,7 +13,7 @@ function login() {
     
     } else if(username.value == "admin" && pass.value == "123456"){
         
-        window.location.href="homepage.html";
+        window.location.href="add_task.html";
    
     } else {
    
