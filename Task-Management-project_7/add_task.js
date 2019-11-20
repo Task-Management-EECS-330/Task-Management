@@ -7,6 +7,9 @@
     var forms = document.getElementsByClassName('needs-validation')
     $(".required").after('<span style="color:red">*</span>');
 
+
+    $('#datetimepicker1').datepicker();
+
     // Loop over them and prevent submission
     Array.prototype.filter.call(forms, function (form) {
       form.addEventListener('submit', function (event) {
@@ -44,6 +47,8 @@
     })
   }, false)
 }())
+
+
 
 function back(){
   window.location.href="calendar.html";

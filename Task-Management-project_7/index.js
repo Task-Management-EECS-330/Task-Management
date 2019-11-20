@@ -13,7 +13,7 @@ function login() {
     
     } else if(username.value == "admin" && pass.value == "123456"){
         
-        window.location.href="calendar.html";
+        window.location.href="weekView.html";
    
     } else {
    
