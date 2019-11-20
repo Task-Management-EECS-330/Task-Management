@@ -31,8 +31,10 @@
         event.end_hour = $("#end_hour").val();
         event.end_ampm = $("#end_ampm").val();
         event.end_min = $("#end_min").val();
+        event.type = $("#type").val();
         debugger;
-        window.location.href="weekView.html?title="+event.title+"&&location="+event.location+"&&start_date="+event.start_date+"&&start_hour="+event.start_hour+"&&start_ampm="+event.start_ampm+"&&start_min="+event.start_min+"&&end_hour="+event.end_hour+"&&end_ampm="+event.end_ampm+"&&end_min="+event.end_min;
+        window.location.href="weekView.html?title="+event.title+"&&location="+event.location+"&&start_date="+event.start_date+"&&start_hour="+event.start_hour+"&&start_ampm="+event.start_ampm+"&&start_min="+event.start_min+
+          "&&end_hour="+event.end_hour+"&&end_ampm="+event.end_ampm+"&&end_min="+event.end_min+"&&type="+event.type+"&&method=add";
         form.classList.add('was-validated');
       }, false)
     })
@@ -52,6 +54,6 @@
 }())
 
 function back(){
-  window.location.href="calendar.html";
+  window.location.href="weekView.html";
 }
 

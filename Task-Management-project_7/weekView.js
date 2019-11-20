@@ -15,6 +15,18 @@ $("td").click(function(){
     switchDay(today,newDay);
 });
 
+$(".task-today .task").click(function(){
+    var from = $(this).attr("from");
+    var to = $(this).attr("to");
+    var name = $(this).attr("name");
+    var location = $(this).attr("location");
+    var note = $(this).attr("note");
+    var type = $(this).attr("type");
+    var id = $(this).attr("id");
+
+    window.location.href = "editTask.html?title="+name+"&&location=" + location + "&&from=" + from + "&&to=" + to + "&&note=" +note+"&&type=" + type+"&&id=" + id;
+})
+
 function switchDay(today, newDay) {
     today.animate({width:'145.7px'});
     today.removeClass("today");
@@ -30,7 +42,8 @@ function switchDay(today, newDay) {
             name: $(newTaskList[i]).attr("name"),
             loca: $(newTaskList[i]).attr("location"),
             note: $(newTaskList[i]).attr("note"),
-            type: $(newTaskList[i]).attr("type")
+            type: $(newTaskList[i]).attr("type"),
+            id: $(newTaskList[i]).attr("id")
         }
     }
 
@@ -43,7 +56,8 @@ function switchDay(today, newDay) {
             name: $(todayTaskList[i]).attr("name"),
             loca: $(todayTaskList[i]).attr("location"),
             note: $(todayTaskList[i]).attr("note"),
-            type: $(todayTaskList[i]).attr("type")
+            type: $(todayTaskList[i]).attr("type"),
+            id: $(todayTaskList[i]).attr("id")
         }
     }
 
@@ -56,7 +70,7 @@ function rewriteNewDay(newDay, newTasks) {
     for (var i = 0; i < newTasks.length; i++){
         text += '<div class="type' + newTasks[i].type + ' time from">'+
         'From: ' + newTasks[i].from + '</div>' +
-        '<div class="task type' + newTasks[i].type + '" from="'+ newTasks[i].from +'" to="' + newTasks[i].to + '" name="' + newTasks[i].name + '" location="' + newTasks[i].loca + '" note="' + newTasks[i].note + '" type=' + newTasks[i].type + '>'+
+        '<div class="task type' + newTasks[i].type + '" id="'+ newTasks[i].id +'" from="'+ newTasks[i].from +'" to="' + newTasks[i].to + '" name="' + newTasks[i].name + '" location="' + newTasks[i].loca + '" note="' + newTasks[i].note + '" type=' + newTasks[i].type + '>'+
         '<i class = "material-icons">bookmark_border</i>Title: ' + newTasks[i].name +
         '<br><i class = "material-icons">room</i>Location: ' + newTasks[i].loca +
         '<div class = "divider"></div><i class = "material-icons">insert_drive_file</i>Note: ' + newTasks[i].note +
@@ -65,6 +79,17 @@ function rewriteNewDay(newDay, newTasks) {
     }
     text += '</div></div><div class = "down-block"><i class = "material-icons">keyboard_arrow_down</i></div>';
     $(newDay).html(text);
+    $(".task-today .task").click(function(){
+        var from = $(this).attr("from");
+        var to = $(this).attr("to");
+        var name = $(this).attr("name");
+        var location = $(this).attr("location");
+        var note = $(this).attr("note");
+        var type = $(this).attr("type");
+        var id = $(this).attr("id");
+
+        window.location.href = "editTask.html?title="+name+"&&location=" + location + "&&from=" + from + "&&to=" + to + "&&note=" +note+"&&type=" + type+"&&id=" + id;
+    })
 }
 
 function rewriteToday(today, todayTasks) {
@@ -110,7 +135,7 @@ function rewriteToday(today, todayTasks) {
         }
         var margin = unit * time + "px";// distance to previous task
 
-        text += '<div class="task type' + todayTasks[i].type + '" style="margin-top:' + margin + ';" from="' + todayTasks[i].from + '" to="' + todayTasks[i].to + '" name="' + todayTasks[i].name + '" location="' + todayTasks[i].loca + '" note="' + todayTasks[i].note + '" type=' + todayTasks[i].type + 
+        text += '<div class="task type' + todayTasks[i].type + '" id="'+ todayTasks[i].id +'" style="margin-top:' + margin + ';" from="' + todayTasks[i].from + '" to="' + todayTasks[i].to + '" name="' + todayTasks[i].name + '" location="' + todayTasks[i].loca + '" note="' + todayTasks[i].note + '" type=' + todayTasks[i].type + 
                 '>' + todayTasks[i].from + ' ' + todayTasks[i].name + '</div>';
     }
     $(today).html(text);
@@ -121,7 +146,11 @@ function addTask() {
 }
 
 $(document).ready(function(){
-    addTaskToCalendar()
+    var method=GetQueryString("method");
+    if (method == "edit"){
+        editTaskToCalendar()}
+    else if (method == "add"){
+        addTaskToCalendar();}
 })
 
 function GetQueryString(name)
@@ -132,6 +161,8 @@ function GetQueryString(name)
 }
 
 function addTaskToCalendar(){
+    var title = GetQueryString("title");
+    var location = GetQueryString("location");
     var sd = GetQueryString("start_date");
     var sh=GetQueryString("start_hour");
     var sampm=GetQueryString("start_ampm");
@@ -139,7 +170,18 @@ function addTaskToCalendar(){
     var eh=GetQueryString("end_hour");
     var eampm=GetQueryString("end_ampm");
     var em=GetQueryString("end_min");
+    var type=GetQueryString("type");
     
+
+    var newAddedTask = new Object();
+    newAddedTask.from = sh+':'+sm+' '+sampm;
+    newAddedTask.to = eh+':'+em+' '+eampm;
+    newAddedTask.name = title;
+    newAddedTask.loca = location;
+    newAddedTask.note = '';
+    newAddedTask.type = type;
+    newAddedTask.id = 'task100';
+
     var day = new Date(Date.parse(sd));
     i = day.getDay();
     var newDay = $(".schedule").children().eq(i);
@@ -155,10 +197,166 @@ function addTaskToCalendar(){
             name: $(newTaskList[i]).attr("name"),
             loca: $(newTaskList[i]).attr("location"),
             note: $(newTaskList[i]).attr("note"),
-            type: $(newTaskList[i]).attr("type")
+            type: $(newTaskList[i]).attr("type"),
+            id: $(newTaskList[i]).attr("id")
+        }
+    }
+    debugger;
+    
+    if(sampm == 'AM' && parseInt(sh) == 12){
+        sh = 0;
+    }
+    else if(sampm == 'AM' && parseInt(sh) != 12){
+        sh = sh;
+    }
+    else if(sampm == 'PM' && parseInt(sh) == 12){
+        sh = sh;
+    }
+    else if(sampm == 'PM' && parseInt(sh) != 12){
+        sh = parseInt(sh) + 12;
+    }
+
+    var k = 0;
+    newAddedTime = parseInt(sh)*60 + parseInt(sm);
+    for (var i = 0; i < newTaskList.length; i++) {
+        start_time = newTasks[i].from;
+        start_time = start_time.split(' ');
+        ampm = start_time[1];
+        start_hhmm = start_time[0].split(':');
+        start_hour = start_hhmm[0];
+        start_min = start_hhmm[1];
+        
+        if(ampm == 'AM' && parseInt(start_hour) == 12){
+            start_hour = 0;
+        }
+        else if(ampm == 'AM' && parseInt(start_hour) != 12){
+            start_hour = start_hour;
+        }
+        else if(ampm == 'PM' && parseInt(start_hour) == 12){
+            start_hour = start_hour;
+        }
+        else if(ampm == 'PM' && parseInt(start_hour) != 12){
+            start_hour = parseInt(start_hour) + 12;
+        }
+
+        currentTaskTime = parseInt(start_hour)*60 + parseInt(start_min);
+
+        if(newAddedTime<currentTaskTime){
+           k = i;
+           break;
+        }
+        else{
+            k++;
         }
     }
 
-    newTasks
     debugger;
+
+    newTasks.splice(k, 0, newAddedTask);
+    debugger;
+    rewriteToday(newDay, newTasks);
+}
+
+
+function editTaskToCalendar(){
+    var title = GetQueryString("title");
+    var location = GetQueryString("location");
+    var sd = GetQueryString("start_date");
+    var sh=GetQueryString("start_hour");
+    var sampm=GetQueryString("start_ampm");
+    var sm=GetQueryString("start_min");
+    var eh=GetQueryString("end_hour");
+    var eampm=GetQueryString("end_ampm");
+    var em=GetQueryString("end_min");
+    var type=GetQueryString("type");
+    var id=GetQueryString("id");
+
+
+    var newAddedTask = new Object();
+    newAddedTask.from = sh+':'+sm+' '+sampm;
+    newAddedTask.to = eh+':'+em+' '+eampm;
+    newAddedTask.name = title;
+    newAddedTask.loca = location;
+    newAddedTask.note = '';
+    newAddedTask.type = type;
+    newAddedTask.id = id;
+
+    var day = new Date(Date.parse(sd));
+    i = day.getDay();
+    var newDay = $(".schedule").children().eq(i);
+    
+    var newTaskList = newDay.children(".task");
+
+    var newTasks = new Array(newTaskList.length);
+    
+    for (var i = 0; i < newTaskList.length; i++) {
+        newTasks[i]={
+            from: $(newTaskList[i]).attr("from"),
+            to: $(newTaskList[i]).attr("to"),
+            name: $(newTaskList[i]).attr("name"),
+            loca: $(newTaskList[i]).attr("location"),
+            note: $(newTaskList[i]).attr("note"),
+            type: $(newTaskList[i]).attr("type"),
+            id: $(newTaskList[i]).attr("id")
+        }
+    }
+
+    
+    if(sampm == 'AM' && parseInt(sh) == 12){
+        sh = 0;
+    }
+    else if(sampm == 'AM' && parseInt(sh) != 12){
+        sh = sh;
+    }
+    else if(sampm == 'PM' && parseInt(sh) == 12){
+        sh = sh;
+    }
+    else if(sampm == 'PM' && parseInt(sh) != 12){
+        sh = parseInt(sh) + 12;
+    }
+
+    newAddedTime = parseInt(sh)*60 + parseInt(sm);
+    
+    var t = 0;
+
+    for (; t < newTaskList.length; t++) {
+        if (newTasks[t].id == newAddedTask.id) break;
+    }
+
+    newTasks.splice(t, 1);
+    var k = 0;
+    for (var i = 0; i < newTaskList.length - 1; i++) {
+        start_time = newTasks[i].from;
+        start_time = start_time.split(' ');
+        ampm = start_time[1];
+        start_hhmm = start_time[0].split(':');
+        start_hour = start_hhmm[0];
+        start_min = start_hhmm[1];
+        
+        if(ampm == 'AM' && parseInt(start_hour) == 12){
+            start_hour = 0;
+        }
+        else if(ampm == 'AM' && parseInt(start_hour) != 12){
+            start_hour = start_hour;
+        }
+        else if(ampm == 'PM' && parseInt(start_hour) == 12){
+            start_hour = start_hour;
+        }
+        else if(ampm == 'PM' && parseInt(start_hour) != 12){
+            start_hour = parseInt(start_hour) + 12;
+        }
+
+        currentTaskTime = parseInt(start_hour)*60 + parseInt(start_min);
+
+        if(newAddedTime<currentTaskTime){
+           k = i;
+           break;
+        }
+        else{
+            k++;
+        }
+    }
+    debugger
+    newTasks.splice(k, 0, newAddedTask);
+    rewriteToday(newDay, newTasks);
 }
