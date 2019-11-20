@@ -6,9 +6,11 @@
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.getElementsByClassName('needs-validation')
     $(".required").after('<span style="color:red">*</span>');
-
-
-    $('#datetimepicker1').datepicker();
+    
+    $('#startDay').datepicker({
+      format:"yyyy/mm/dd",
+    });
+    $('#endDate').datepicker();
 
     // Loop over them and prevent submission
     Array.prototype.filter.call(forms, function (form) {
@@ -21,15 +23,16 @@
         }
         var event = new Object();
         event.title = $("#taskName").val();
-        event.d = $("#day").val();
-        event.m = $("#month").val();
-        event.y = $("#year").val();
+        event.location = $("#location").val();
+        event.start_date = $("#startDate").val();
         event.start_hour = $("#start_hour").val();
+        event.start_ampm = $("#start_ampm").val();
         event.start_min = $("#start_min").val();
         event.end_hour = $("#end_hour").val();
+        event.end_ampm = $("#end_ampm").val();
         event.end_min = $("#end_min").val();
         debugger;
-        window.location.href="calendar.html?title="+event.title+"&&d="+event.d+"&&m="+event.m+"&&y="+event.y+"&&start_hour="+event.start_hour+"&&start_min="+event.start_min+"&&end_hour="+event.end_hour+"&&end_min"+event.end_min;
+        window.location.href="weekView.html?title="+event.title+"&&location="+event.location+"&&start_date="+event.start_date+"&&start_hour="+event.start_hour+"&&start_ampm="+event.start_ampm+"&&start_min="+event.start_min+"&&end_hour="+event.end_hour+"&&end_ampm="+event.end_ampm+"&&end_min="+event.end_min;
         form.classList.add('was-validated');
       }, false)
     })
@@ -47,8 +50,6 @@
     })
   }, false)
 }())
-
-
 
 function back(){
   window.location.href="calendar.html";

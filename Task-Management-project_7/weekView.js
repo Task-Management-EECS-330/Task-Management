@@ -117,5 +117,48 @@ function rewriteToday(today, todayTasks) {
 }
 
 function addTask() {
-    window.location.href="add_task.html";
+    window.location.href="addTask.html";
+}
+
+$(document).ready(function(){
+    addTaskToCalendar()
+})
+
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+
+function addTaskToCalendar(){
+    var sd = GetQueryString("start_date");
+    var sh=GetQueryString("start_hour");
+    var sampm=GetQueryString("start_ampm");
+    var sm=GetQueryString("start_min");
+    var eh=GetQueryString("end_hour");
+    var eampm=GetQueryString("end_ampm");
+    var em=GetQueryString("end_min");
+    
+    var day = new Date(Date.parse(sd));
+    i = day.getDay();
+    var newDay = $(".schedule").children().eq(i);
+    
+    var newTaskList = newDay.children(".task");
+
+    var newTasks = new Array(newTaskList.length);
+    
+    for (var i = 0; i < newTaskList.length; i++) {
+        newTasks[i]={
+            from: $(newTaskList[i]).attr("from"),
+            to: $(newTaskList[i]).attr("to"),
+            name: $(newTaskList[i]).attr("name"),
+            loca: $(newTaskList[i]).attr("location"),
+            note: $(newTaskList[i]).attr("note"),
+            type: $(newTaskList[i]).attr("type")
+        }
+    }
+
+    newTasks
+    debugger;
 }
