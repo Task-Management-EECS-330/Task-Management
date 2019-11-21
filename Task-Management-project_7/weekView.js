@@ -151,6 +151,23 @@ $(document).ready(function(){
         editTaskToCalendar()}
     else if (method == "add"){
         addTaskToCalendar();}
+    var defaultDay = $(".schedule").children().eq(3);
+    var newTaskList = defaultDay.children(".task"); //get all tasks from clicked day
+    var newTasks = new Array(newTaskList.length);
+    for (var i = 0; i < newTaskList.length; i++) {
+        newTasks[i]={
+            from: $(newTaskList[i]).attr("from"),
+            to: $(newTaskList[i]).attr("to"),
+            name: $(newTaskList[i]).attr("name"),
+            loca: $(newTaskList[i]).attr("location"),
+            note: $(newTaskList[i]).attr("note"),
+            type: $(newTaskList[i]).attr("type"),
+            id: $(newTaskList[i]).attr("id")
+        }
+    }
+    defaultDay.animate({width:'340px'});
+    defaultDay.addClass("today");
+    rewriteNewDay(defaultDay,newTasks);
 })
 
 function GetQueryString(name)
@@ -322,10 +339,10 @@ function editTaskToCalendar(){
     for (; t < newTaskList.length; t++) {
         if (newTasks[t].id == newAddedTask.id) break;
     }
-
-    newTasks.splice(t, 1);
+    if (t < newTaskList.length)
+        newTasks.splice(t, 1);
     var k = 0;
-    for (var i = 0; i < newTaskList.length - 1; i++) {
+    for (var i = 0; i < newTasks.length; i++) {
         start_time = newTasks[i].from;
         start_time = start_time.split(' ');
         ampm = start_time[1];
