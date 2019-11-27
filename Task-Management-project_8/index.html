@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  
+  <div class = "container" id="container">
+	  <div class = "output" id="output">
+	  </div>
+  </div>
+  <div class="signin">
+  <form class="form-signin"  method="post" >
+    <div class ="title">
+      <h1 class="h3 mb-3 font-weight-normal">Task Management</h1>
+    </div>
+    <label for="inputUsername" class="sr-only">Username</label>
+    <i class="material-icons">perm_identity</i>
+    <input type="text" id="inputUsername" class="form-control" placeholder="Username" >
+    <label for="inputPassword" class="sr-only">Password</label>
+    <i class="material-icons">vpn_key</i>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" >
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <div>
+        <a href="register.html">Register</a>
+    </div>
+    <input type = "button" class="btn btn-lg btn-primary btn-block" value = "Sign In" onclick="login()"/>
+  </form>  
+  </div>
+</body>
+
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/vector.js"></script>
+    
+<script type="text/javascript">
+    $(function(){
+        Victor("container", "output"); 
+        $("#entry_name").focus();
+        $(document).keydown(function(event){
+            if(event.keyCode==13){
+                $("#entry_btn").click();
+            }
+        });
+    });
+</script>

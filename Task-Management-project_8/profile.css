@@ -1,0 +1,52 @@
+.container {
+    max-width: 960px;
+    margin-bottom: 100px;
+}
+
+.wrapper{
+    margin-left: 16.67%;  
+}
+
+.buttons{
+    justify-content: space-between;
+}
+
+.lh-condensed { line-height: 1.25; }
+
+#startTime{
+    display: none;
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+        url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+        url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+  
+h4 .material-icons{
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;  /* Preferred icon size */
+    display: inline-block;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    text-shadow: none;
+    color:rebeccapurple;
+    position: absolute;
+    margin-top : 1.5%;
+    margin-left : 1%;
+}
+
+h4 .material-icons:hover{
+    cursor:help;
+}
