@@ -44,26 +44,59 @@ tr .last{
     overflow: hidden;
     white-space: nowrap;
 }
-
 .type1{
     background-color:#FF6666;
     border-color:#FF6666;
 }
+
+.task-today .task.type1:hover{
+    background-color:#FF8888;
+    border-color:#FF8888;
+    cursor:pointer;
+}
+
 .type2{
     background-color:#00CC99;
     border-color:#00CC99;
 }
+
+.task-today .task.type2:hover{
+    background-color:#22EEBB;
+    border-color:#22EEBB;
+    cursor:pointer;
+}
+
 .type3{
     background-color:#FFCC33;
     border-color:#FFCC33;
 }
+
+.task-today .task.type3:hover{
+    background-color:#FFEE55;
+    border-color:#FFEE55;
+    cursor:pointer;
+}
+
 .type4{
     background-color:#CC66FF;
     border-color:#CC66FF;
 }
+
+.task-today .task.type4:hover{
+    background-color:#EE88FF;
+    border-color:#EE88FF;
+    cursor:pointer;
+}
+
 .type5{
     background-color:#6666FF;
     border-color:#6666FF;
+}
+
+.task-today .task.type5:hover{
+    background-color:#8888FF;
+    border-color:#8888FF;
+    cursor:pointer;
 }
 
 .scroller{
@@ -175,4 +208,36 @@ tr .last{
     float:left;
     margin-top:5%;
     margin-left:3%
+}
+
+.addNew:hover{
+    background: #8855BB;
+    cursor:pointer;
+}
+
+
+.profile{
+    color: rebeccapurple;
+    position: absolute;
+    height: 5%;
+    width: 6%;
+    font-size: 16px;
+    border-radius: 5px;
+    background: #fff;
+    margin-top:-3.2%;
+    margin-left:10%;
+    line-height: 40px;
+    border:1.5px solid rebeccapurple;
+}
+
+.profile i{
+    position: relative;
+    float:left;
+    margin-top:8.5%;
+    margin-left:3%
+}
+
+.profile:hover{
+    box-shadow:-2px 2px 5px #adadad;
+    cursor:pointer;
 }

@@ -11,6 +11,22 @@
       format:"yyyy/mm/dd",
     });
     $('#endDate').datepicker();
+    var Class = GetQueryString("class");
+    var defaultTime = GetQueryString("defaultTime");
+
+    var current_type = document.getElementById("type");
+    if(current_type.value == Class){
+      var start_time = defaultTime.split(":");
+      var start_hour = start_time[0];
+      var start_temp = start_time[1].split("");
+      var start_min = start_temp[0]+start_temp[1];
+      var start_ampm = start_temp[2]+start_temp[3];
+      $("#start_hour").val(start_hour);
+      $("#start_min").val(start_min);
+      $("#start_ampm").val(start_ampm);
+    }
+
+
 
     // Loop over them and prevent submission
     Array.prototype.filter.call(forms, function (form) {
@@ -32,8 +48,8 @@
         event.end_ampm = $("#end_ampm").val();
         event.end_min = $("#end_min").val();
         event.type = $("#type").val();
-        debugger;
-        window.location.href="weekView.html?title="+event.title+"&&location="+event.location+"&&start_date="+event.start_date+"&&start_hour="+event.start_hour+"&&start_ampm="+event.start_ampm+"&&start_min="+event.start_min+
+        
+        window.location.href="weekView.html?class="+ Class + "&&defaultTime="+ defaultTime +"&&title="+event.title+"&&location="+event.location+"&&start_date="+event.start_date+"&&start_hour="+event.start_hour+"&&start_ampm="+event.start_ampm+"&&start_min="+event.start_min+
           "&&end_hour="+event.end_hour+"&&end_ampm="+event.end_ampm+"&&end_min="+event.end_min+"&&type="+event.type+"&&method=add";
         form.classList.add('was-validated');
       }, false)
@@ -43,17 +59,39 @@
 
       option.addEventListener("change", function(event){
       
-        if(option.value == 'none'){
+      if(option.value == 'none'){
           endRepeat.style.display="none";
         }
         else{
           endRepeat.style.display="";
         }
-    })
+      })
+      
+      current_type.addEventListener("change", function(event){
+      if(current_type.value == Class){
+          var start_time = defaultTime.split(":");
+          var start_hour = start_time[0];
+          var start_temp = start_time[1].split("");
+          var start_min = start_temp[0]+start_temp[1];
+          var start_ampm = start_temp[2]+start_temp[3];
+          $("#start_hour").val(start_hour);
+          $("#start_min").val(start_min);
+          $("#start_ampm").val(start_ampm);
+        }
+      })
+
+
   }, false)
 }())
 
 function back(){
-  window.location.href="weekView.html";
+  var href = window.location.href.split("?")[1];
+  window.location.href="weekView.html?" + href;
 }
 
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}

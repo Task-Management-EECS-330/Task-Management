@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Album Songs</title>
+        <title>Task Management</title>
         <link rel="stylesheet" type="text/css" href="weekView.css"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
@@ -9,8 +9,21 @@
             <i class = "material-icons">add</i>
             Add New Task
         </div>
+        <div class = "profile" onclick="profile()">
+            <i class = "material-icons">perm_identity</i>
+            Profile
+        </div>
         <table class = "weekCalender">
             <tr class = "span"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr class = "date">
+                <th>Dec 1st</th>
+                <th>Dec 2nd</th>
+                <th>Dec 3rd</th>
+                <th>Dec 4th</th>
+                <th>Dec 5th</th>
+                <th>Dec 6th</th>
+                <th class = "last">Dec 7th</th>
+            </tr>
             <tr class = "week">
                 <th>Sunday</th>
                 <th>Monday</th>
@@ -42,62 +55,15 @@
                         8:00 PM Party
                     </div>
                 </td>
-                <td class = "today">
-                    <div class = "up-block">
-                        <i class = "material-icons">keyboard_arrow_up</i>
+                <td>
+                    <div class="task type3" id="task06" style="margin-top:261.14px;" from="11:00 AM" to="12:30 PM" name="Course" location="Technological Institute AUD" note="Reading Quiz" type="3">
+                        11:00 AM Course
                     </div>
-                    <div class = "scroller">
-                        <div class = "task-today">
-                            <div class="type3 time from">
-                                From: 11:00 AM
-                            </div>
-                            <div class="task type3" id="task06" from="11:00 AM" to="12:30 PM" name="Course" location="Technological Institute AUD" note="Reading Quiz" type="3">
-                                <i class = "material-icons">bookmark_border</i>
-                                Title: Course<br>
-                                <i class = "material-icons">room</i>
-                                Location: Technological Institute AUD
-                                <div class = "divider"></div>
-                                <i class = "material-icons">insert_drive_file</i>
-                                Note: Reading Quiz
-                            </div>
-                            <div class="type3 time to">
-                                To: 12:30 PM
-                            </div>
-                            
-                            <div class="type2 time from">
-                                From: 3:00 PM
-                            </div>
-                            <div class="task type2" id="task07" from="3:00 PM" to="4:00 PM" name="Project" location="Norris Center" note="" type="2">
-                                <i class = "material-icons">bookmark_border</i>
-                                Title: Project<br>
-                                <i class = "material-icons">room</i>
-                                Location: Norris Center
-                                <div class = "divider"></div>
-                                <i class = "material-icons">insert_drive_file</i>
-                                Note:
-                            </div>
-                            <div class="type2 time to">
-                                To: 4:00 PM
-                            </div>
-                             <div class="type1 time from">
-                                From: 4:45 PM
-                            </div>
-                            <div class="task type1" id="task08" from="4:45 PM" to="6:00 PM" name="Meeting" location="Mudd" note="For P.7" type="1">
-                                <i class = "material-icons">bookmark_border</i>
-                                Title: Meeting<br>
-                                <i class = "material-icons">room</i>
-                                Location: Mudd
-                                <div class = "divider"></div>
-                                <i class = "material-icons">insert_drive_file</i>
-                                Note: For P.7
-                            </div>
-                            <div class="type1 time to">
-                                To: 6:00 PM
-                            </div>
-                        </div>
+                    <div class="task type2" id="task07" style="margin-top:71.22px;" from="3:00 PM" to="4:00 PM" name="Project" location="Norris Center" note="" type="2">
+                        3:00 PM Project
                     </div>
-                    <div class = "down-block">
-                        <i class = "material-icons">keyboard_arrow_down</i>
+                    <div class="task type1" id="task08" style="margin-top:10.68px;" from="4:45 PM" to="6:00 PM" name="Meeting" location="Mudd" note="For P.7" type="1">
+                        4:45 PM Meeting
                     </div>
                 </td>
                 <td>

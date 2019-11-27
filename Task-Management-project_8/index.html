@@ -6,9 +6,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="index.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
+  
+  <div class = "container" id="container">
+	  <div class = "output" id="output">
+	  </div>
+  </div>
   <div class="signin">
   <form class="form-signin"  method="post" >
     <div class ="title">
@@ -32,3 +36,19 @@
   </form>  
   </div>
 </body>
+
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/vector.js"></script>
+    
+<script type="text/javascript">
+    $(function(){
+        Victor("container", "output"); 
+        $("#entry_name").focus();
+        $(document).keydown(function(event){
+            if(event.keyCode==13){
+                $("#entry_btn").click();
+            }
+        });
+    });
+</script>

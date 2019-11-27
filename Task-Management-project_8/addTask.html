@@ -34,7 +34,6 @@
                 Valid location is required.
                 </div>
             </div>
-
             <div class="mb-3">
                 <label for="startDate" class = "required">Date(YYYY/MM/DD)</label>
                 <div class='input-group date' id='startDay'>
@@ -45,9 +44,20 @@
                 </div>
             </div>
 
+
+            <div class = "mb-3">
+                <label for="type" class = "required">Type</label>
+                <select class="custom-select d-block w-100" id="type" >
+                    <option value="1">Work</option>
+                    <option value="2">School</option>
+                    <option value="3">Family</option>
+                    <option value="4">Personal</option>
+                    <option value="5">Entertainment</option>
+                </select>
+            </div>
+
             <div class="mb-3">
                 <label for="startDate" class = "required">Start time</label>
-                
                 <div class="row">
                     <div class="col-md-3 mb-3">
                         <input type="text" class="form-control" id="start_hour" placeholder="Hour" required>
@@ -56,16 +66,16 @@
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <select class="custom-select d-block w-100" id="start_ampm" >
-                            <option value="AM">AM</option>
-                            <option value="PM">PM</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3 mb-3">
                         <input type="text" class="form-control" id="start_min" placeholder="Min" required>
                         <div class="invalid-feedback">
                                 Please enter a valid start min.
                         </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <select class="custom-select d-block w-100" id="start_ampm" >
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -80,16 +90,16 @@
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <select class="custom-select d-block w-100" id="end_ampm" >
-                            <option value="AM">AM</option>
-                            <option value="PM">PM</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3 mb-3">
                         <input type="text" class="form-control" id="end_min" placeholder="Min" required>
                         <div class="invalid-feedback">
                                 Please enter a valid end min.
                         </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <select class="custom-select d-block w-100" id="end_ampm" >
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -122,16 +132,6 @@
                 </select>
             </div>
 
-            <div class = "mb-3">
-                <label for="class">Type</label>
-                <select class="custom-select d-block w-100" id="type" >
-                    <option value="1">Work</option>
-                    <option value="2">School</option>
-                    <option value="3">Family</option>
-                    <option value="4">Personal</option>
-                    <option value="5">Entertainment</option>
-                </select>
-            </div>
             <hr class="mb-4">
             <div class = "buttons row">
                 <input type="button" class="col-md-5 btn btn-primary btn-lg " value = "Back" onclick="back()"></button>

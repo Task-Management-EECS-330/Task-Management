@@ -6,7 +6,6 @@ function login() {
     var newuser = GetQueryString("username");
     var newpassword = GetQueryString("password");
 
-    debugger;
     if (username.value == "") {
     
         alert("Please enter username");
@@ -17,7 +16,7 @@ function login() {
     
     } else if(username.value == "admin" && pass.value == "123456"){
         
-        window.location.href="weekView.html";
+        window.location.href="weekView.html?class=0&&defaultTime=null";
    
     }else if(username.value == newuser && pass.value == newpassword){
 

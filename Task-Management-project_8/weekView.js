@@ -23,8 +23,11 @@ $(".task-today .task").click(function(){
     var note = $(this).attr("note");
     var type = $(this).attr("type");
     var id = $(this).attr("id");
+    var Class = GetQueryString("class");
+    var defaultTime = GetQueryString("defaultTime");
+    var text ="editTask.html?class=" + Class + "&&defaultTime=" + defaultTime + "&&title=" + name + "&&location=" + location + "&&from=" + from + "&&to=" + to + "&&note=" +note+"&&type=" + type+"&&id=" + id;
 
-    window.location.href = "editTask.html?title="+name+"&&location=" + location + "&&from=" + from + "&&to=" + to + "&&note=" +note+"&&type=" + type+"&&id=" + id;
+    window.location.href = text;
 })
 
 function switchDay(today, newDay) {
@@ -87,8 +90,10 @@ function rewriteNewDay(newDay, newTasks) {
         var note = $(this).attr("note");
         var type = $(this).attr("type");
         var id = $(this).attr("id");
-
-        window.location.href = "editTask.html?title="+name+"&&location=" + location + "&&from=" + from + "&&to=" + to + "&&note=" +note+"&&type=" + type+"&&id=" + id;
+        var Class = GetQueryString("class");
+        var defaultTime = GetQueryString("defaultTime");
+        var text ="editTask.html?class=" + Class + "&&defaultTime=" + defaultTime + "&&title=" + name + "&&location=" + location + "&&from=" + from + "&&to=" + to + "&&note=" +note+"&&type=" + type+"&&id=" + id;
+        window.location.href = text;
     })
 }
 
@@ -142,7 +147,17 @@ function rewriteToday(today, todayTasks) {
 }
 
 function addTask() {
-    window.location.href="addTask.html";
+    var Class = GetQueryString("class");
+    var defaultTime = GetQueryString("defaultTime");
+    window.location.href="addTask.html?class=" + Class + "&&defaultTime=" + defaultTime;
+}
+
+function profile() {
+    var href = window.location.href.split("?");
+    if (href.length == 2)
+        window.location.href="profile.html"+"?"+href[1];
+    else
+        window.location.href="profile.html";
 }
 
 $(document).ready(function(){
@@ -151,6 +166,23 @@ $(document).ready(function(){
         editTaskToCalendar()}
     else if (method == "add"){
         addTaskToCalendar();}
+    var defaultDay = $(".schedule").children().eq(3);
+    var newTaskList = defaultDay.children(".task"); //get all tasks from clicked day
+    var newTasks = new Array(newTaskList.length);
+    for (var i = 0; i < newTaskList.length; i++) {
+        newTasks[i]={
+            from: $(newTaskList[i]).attr("from"),
+            to: $(newTaskList[i]).attr("to"),
+            name: $(newTaskList[i]).attr("name"),
+            loca: $(newTaskList[i]).attr("location"),
+            note: $(newTaskList[i]).attr("note"),
+            type: $(newTaskList[i]).attr("type"),
+            id: $(newTaskList[i]).attr("id")
+        }
+    }
+    defaultDay.animate({width:'340px'});
+    defaultDay.addClass("today");
+    rewriteNewDay(defaultDay,newTasks);
 })
 
 function GetQueryString(name)
@@ -201,7 +233,6 @@ function addTaskToCalendar(){
             id: $(newTaskList[i]).attr("id")
         }
     }
-    debugger;
     
     if(sampm == 'AM' && parseInt(sh) == 12){
         sh = 0;
@@ -249,11 +280,7 @@ function addTaskToCalendar(){
             k++;
         }
     }
-
-    debugger;
-
     newTasks.splice(k, 0, newAddedTask);
-    debugger;
     rewriteToday(newDay, newTasks);
 }
 
@@ -322,10 +349,10 @@ function editTaskToCalendar(){
     for (; t < newTaskList.length; t++) {
         if (newTasks[t].id == newAddedTask.id) break;
     }
-
-    newTasks.splice(t, 1);
+    if (t < newTaskList.length)
+        newTasks.splice(t, 1);
     var k = 0;
-    for (var i = 0; i < newTaskList.length - 1; i++) {
+    for (var i = 0; i < newTasks.length; i++) {
         start_time = newTasks[i].from;
         start_time = start_time.split(' ');
         ampm = start_time[1];
@@ -356,7 +383,6 @@ function editTaskToCalendar(){
             k++;
         }
     }
-    debugger
     newTasks.splice(k, 0, newAddedTask);
     rewriteToday(newDay, newTasks);
 }

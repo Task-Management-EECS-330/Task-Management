@@ -62,8 +62,9 @@
           event.end_ampm = $("#end_ampm").val();
           event.end_min = $("#end_min").val();
           event.type = $("#type").val();
-          debugger;
-          window.location.href="weekView.html?title="+event.title+"&&location="+event.location+"&&start_date="+event.start_date+"&&start_hour="+event.start_hour+"&&start_ampm="+event.start_ampm+"&&start_min="+event.start_min+
+          var Class = GetQueryString("class");
+          var defaultTime = GetQueryString("defaultTime");
+          window.location.href="weekView.html?class="+ Class + "&&defaultTime="+ defaultTime +"&&title="+event.title+"&&location="+event.location+"&&start_date="+event.start_date+"&&start_hour="+event.start_hour+"&&start_ampm="+event.start_ampm+"&&start_min="+event.start_min+
             "&&end_hour="+event.end_hour+"&&end_ampm="+event.end_ampm+"&&end_min="+event.end_min+"&&type="+event.type+"&&id="+id+"&&method=edit";
           form.classList.add('was-validated');
         }, false)
@@ -88,4 +89,9 @@ function GetQueryString(name)
      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
      var r = window.location.search.substr(1).match(reg);
      if(r!=null)return  unescape(r[2]); return null;
+}
+
+function back(){
+  var href = window.location.href.split("?")[1];
+  window.location.href="weekView.html?" + href;
 }

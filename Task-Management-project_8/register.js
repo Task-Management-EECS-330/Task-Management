@@ -53,5 +53,5 @@
 }())
 
 function back(){
-    window.location.href="weekView.html";
+    window.location.href="index.html";
 }
