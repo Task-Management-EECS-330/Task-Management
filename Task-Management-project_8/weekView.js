@@ -311,7 +311,31 @@ function editTaskToCalendar(){
     var day = new Date(Date.parse(sd));
     i = day.getDay();
     var newDay = $(".schedule").children().eq(i);
-    
+    var previousDay = $("#"+id).parent();
+    var previousList = previousDay.children(".task");
+
+    var previousTasks = new Array(previousList.length);
+    for (var i = 0; i < previousList.length; i++) {
+        previousTasks[i]={
+            from: $(previousList[i]).attr("from"),
+            to: $(previousList[i]).attr("to"),
+            name: $(previousList[i]).attr("name"),
+            loca: $(previousList[i]).attr("location"),
+            note: $(previousList[i]).attr("note"),
+            type: $(previousList[i]).attr("type"),
+            id: $(previousList[i]).attr("id")
+        }
+    }
+     var t = 0;
+
+    for (; t < previousList.length; t++) {
+        if (previousTasks[t].id == newAddedTask.id) break;
+    }
+    if (t < previousList.length)
+        previousTasks.splice(t, 1);
+
+    rewriteToday(previousDay, previousTasks);
+
     var newTaskList = newDay.children(".task");
 
     var newTasks = new Array(newTaskList.length);
@@ -343,14 +367,7 @@ function editTaskToCalendar(){
     }
 
     newAddedTime = parseInt(sh)*60 + parseInt(sm);
-    
-    var t = 0;
 
-    for (; t < newTaskList.length; t++) {
-        if (newTasks[t].id == newAddedTask.id) break;
-    }
-    if (t < newTaskList.length)
-        newTasks.splice(t, 1);
     var k = 0;
     for (var i = 0; i < newTasks.length; i++) {
         start_time = newTasks[i].from;

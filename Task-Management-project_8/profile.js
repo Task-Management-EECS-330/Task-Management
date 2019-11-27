@@ -82,7 +82,6 @@ var defaultTime = null;
     function save(){
         var type = $("#type").val();
         var startTime = $("#start_hour").val()+":"+$("#start_min").val()+$("#start_ampm").val();
-        debugger;
         var url = window.location.href.split("?");
         var temp2 = url[1].split("&&")
         if (temp2.length == 2){
