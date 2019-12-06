@@ -9,7 +9,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///Users/icarus/Documents/GitHub/Task-Management/Task-Management-project_8/index.html",
+            "url": "file:///Users/icarus/Documents/GitHub/Task-Management/Final/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

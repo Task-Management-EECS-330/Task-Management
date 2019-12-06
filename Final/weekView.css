@@ -1,0 +1,301 @@
+
+.weekCalender{ 
+    width: 80%;
+    height: 80%;
+    margin-left:10%;
+    margin-top:5%;
+    background: #fff;
+    border-radius:5px;
+    border: 1px solid #d0d0d0;
+    box-shadow:-5px 5px 10px #adadad;
+}
+.schedule td{
+    color : #fff;
+    border-right: 1px solid #E0E0E0;
+    width : 145.7px;
+    vertical-align: top;
+    font-size:15px;
+    text-align: center;
+    line-height: 24px;
+}
+.weekCalender .today{
+    width : 340px;
+    overflow:hidden;
+}
+.weekCalender th{
+    color : rebeccapurple;
+    vertical-align:top;
+    height: 6%;
+    text-align: center;
+    border-right: 1px solid #E0E0E0;
+}
+.span{
+    height: 2%;
+}
+tr .last{
+    border-right: 0px solid #E0E0E0;
+}
+
+.task{
+    max-width : 145.7px;
+    height:4.2%;
+    border-radius: 5px; 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.type1{
+    background-color:#FF6666;
+    border-color:#FF6666;
+}
+
+.task-today .task.type1:hover{
+    background-color:#FF8888;
+    border-color:#FF8888;
+    cursor:pointer;
+}
+
+.type2{
+    background-color:#00CC99;
+    border-color:#00CC99;
+}
+
+.task-today .task.type2:hover{
+    background-color:#22EEBB;
+    border-color:#22EEBB;
+    cursor:pointer;
+}
+
+.type3{
+    background-color:#FFCC33;
+    border-color:#FFCC33;
+}
+
+.task-today .task.type3:hover{
+    background-color:#FFEE55;
+    border-color:#FFEE55;
+    cursor:pointer;
+}
+
+.type4{
+    background-color:#CC66FF;
+    border-color:#CC66FF;
+}
+
+.task-today .task.type4:hover{
+    background-color:#EE88FF;
+    border-color:#EE88FF;
+    cursor:pointer;
+}
+
+.type5{
+    background-color:#6666FF;
+    border-color:#6666FF;
+}
+
+.task-today .task.type5:hover{
+    background-color:#8888FF;
+    border-color:#8888FF;
+    cursor:pointer;
+}
+
+.scroller{
+    height:80%;
+    overflow-y: auto;
+}
+
+.scroller::-webkit-scrollbar {
+    display:none
+}
+
+.up-block{
+    height: 10%;
+    width:100%;
+    background: linear-gradient(to bottom,#EEEEEE,#fff);
+}
+
+.task-today{
+    height:120%;
+}
+
+.task-today>.task{
+    max-width : 340px;
+}
+
+.down-block{
+    height: 10%;
+    width:100%;
+    background: linear-gradient(to bottom,#fff,#EEEEEE);
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.today i{
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 50px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  text-shadow: none;
+  color:#d0d0d0;
+  }
+
+.task-today>.task{
+    height:25%;
+    text-align: left;
+}
+
+.time{
+    height:5%;
+    width:100%;
+    color:#a0a0a0;
+    background-color: #fff;
+}
+.from{
+    border-top-width: 2px;
+    border-top-style: solid;
+}
+.to{
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    margin-bottom: 15%;
+}
+
+.task i{
+    color:#fff;
+    font-size: 24px;
+    vertical-align: middle;
+}
+.task .divider{
+    height: 5%;
+    width:80%;
+    margin-left:10%;
+    margin-top:5%;
+    border-top: 1.5px solid #fff;
+}
+
+.addNew{
+    color: #fff;
+    position: absolute;
+    height: 5%;
+    width: 10%;
+    font-size: 16px;
+    border-radius: 5px;
+    background: rebeccapurple;
+    margin-top:-3%;
+    margin-left:79%;
+    line-height: 40px;
+}
+
+.addNew i{
+    position: relative;
+    float:left;
+    margin-top:5%;
+    margin-left:3%
+}
+
+.addNew:hover{
+    background: #8855BB;
+    cursor:pointer;
+}
+
+
+.month{
+    color: rebeccapurple;
+    position: absolute;
+    height: 5%;
+    width: 6%;
+    font-size: 16px;
+    border-radius: 5px;
+    background: #fff;
+    margin-top:-3.2%;
+    margin-left:10%;
+    line-height: 40px;
+    border:1.5px solid rebeccapurple;
+}
+
+.month i{
+    position: relative;
+    float:left;
+    margin-top:8.5%;
+    margin-left:3%
+}
+
+.month:hover{
+    box-shadow:-2px 2px 5px #adadad;
+    cursor:pointer;
+}
+
+.profile{
+    color: rebeccapurple;
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50px;
+    background: #fff;
+    margin-top:-3.5%;
+    margin-left:5%;
+    line-height: 40px;
+    border:1.5px solid rebeccapurple;
+}
+
+.profile i{
+    position: relative;
+    float:center;
+    margin-top:25%;
+    margin-left:25%
+}
+
+.profile:hover{
+    box-shadow:-2px 2px 5px #adadad;
+    cursor:pointer;
+}
+
+.weekChange{
+    color: #a0a0a0;
+    font-size:16px;
+    position:absolute;
+    margin-top:-2.5%;
+}
+
+.weekChange i{
+    position: relative;
+    margin-top:-3%;
+}
+
+.weekChange:hover{
+    color:#d0d0d0;
+    cursor: pointer;
+}
+
+.previousWeek{
+    margin-left:37%;
+}
+
+.previousWeek i{
+    float:left;
+}
+
+.nextWeek{
+    margin-left:55%;
+}
+
+.nextWeek i{
+    float:right;
+}
