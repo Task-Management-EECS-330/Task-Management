@@ -62,9 +62,15 @@
           event.end_ampm = $("#end_ampm").val();
           event.end_min = $("#end_min").val();
           event.type = $("#type").val();
+
           var Class = GetQueryString("class");
           var defaultTime = GetQueryString("defaultTime");
-          window.location.href="weekView.html?class="+ Class + "&&defaultTime="+ defaultTime +"&&title="+event.title+"&&location="+event.location+"&&start_date="+event.start_date+"&&start_hour="+event.start_hour+"&&start_ampm="+event.start_ampm+"&&start_min="+event.start_min+
+          var user  = GetQueryString("user");
+          var tel = GetQueryString("tel");
+          var email = GetQueryString("email");
+
+          window.location.href="weekView.html?class="+ Class + "&&defaultTime="+ defaultTime + "&&user=" + user + "&&tel=" + tel + "&&email=" + email + 
+            "&&title="+event.title+"&&location="+event.location+"&&start_date="+event.start_date+"&&start_hour="+event.start_hour+"&&start_ampm="+event.start_ampm+"&&start_min="+event.start_min+
             "&&end_hour="+event.end_hour+"&&end_ampm="+event.end_ampm+"&&end_min="+event.end_min+"&&type="+event.type+"&&id="+id+"&&method=edit";
           form.classList.add('was-validated');
         }, false)

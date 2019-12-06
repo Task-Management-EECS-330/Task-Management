@@ -5,6 +5,8 @@ function login() {
   
     var newuser = GetQueryString("username");
     var newpassword = GetQueryString("password");
+    var tel = GetQueryString("phone");
+    var email = GetQueryString("email");
 
     if (username.value == "") {
     
@@ -16,11 +18,11 @@ function login() {
     
     } else if(username.value == "admin" && pass.value == "123456"){
         
-        window.location.href="weekView.html?class=0&&defaultTime=null&&user=admin&&tel=773-123-4567&&email=admin@u.northwestern.edu";
+        window.location.href="weekView.html?class=0&&defaultTime=null&&user=admin&&tel=7731234567&&email=admin@u.northwestern.edu";
    
     }else if(username.value == newuser && pass.value == newpassword){
 
-        window.location.href="weekView.html?user="+newuser;
+        window.location.href="weekView.html?class=0&&defaultTime=null&&user=" + newuser + "&&tel=" + tel + "&&email=" + email;
 
     } else {
    

@@ -30,7 +30,11 @@ $(".task-today .task").click(function(){
     var id = $(this).attr("id");
     var Class = GetQueryString("class");
     var defaultTime = GetQueryString("defaultTime");
-    var text ="editTask.html?class=" + Class + "&&defaultTime=" + defaultTime + "&&title=" + name + "&&location=" + location + "&&from=" + from + "&&to=" + to + "&&note=" +note+"&&type=" + type+"&&id=" + id;
+    var user  = GetQueryString("user");
+    var tel = GetQueryString("tel");
+    var email = GetQueryString("email");
+    var text ="editTask.html?class=" + Class + "&&defaultTime=" + defaultTime + "&&user=" + user + "&&tel=" + tel + "&&email=" + email +
+        "&&title=" + name + "&&location=" + location + "&&from=" + from + "&&to=" + to + "&&note=" +note+"&&type=" + type+"&&id=" + id;
 
     window.location.href = text;
 })
@@ -97,7 +101,11 @@ function rewriteNewDay(newDay, newTasks) {
         var id = $(this).attr("id");
         var Class = GetQueryString("class");
         var defaultTime = GetQueryString("defaultTime");
-        var text ="editTask.html?class=" + Class + "&&defaultTime=" + defaultTime + "&&title=" + name + "&&location=" + location + "&&from=" + from + "&&to=" + to + "&&note=" +note+"&&type=" + type+"&&id=" + id;
+        var user  = GetQueryString("user");
+        var tel = GetQueryString("tel");
+        var email = GetQueryString("email");
+        var text ="editTask.html?class=" + Class + "&&defaultTime=" + defaultTime + "&&user=" + user + "&&tel=" + tel + "&&email=" + email + 
+            "&&title=" + name + "&&location=" + location + "&&from=" + from + "&&to=" + to + "&&note=" +note+"&&type=" + type+"&&id=" + id;
         window.location.href = text;
     })
 }
@@ -154,7 +162,10 @@ function rewriteToday(today, todayTasks) {
 function addTask() {
     var Class = GetQueryString("class");
     var defaultTime = GetQueryString("defaultTime");
-    window.location.href="addTask.html?class=" + Class + "&&defaultTime=" + defaultTime;
+    var user  = GetQueryString("user");
+    var tel = GetQueryString("tel");
+    var email = GetQueryString("email");
+    window.location.href="addTask.html?class=" + Class + "&&defaultTime=" + defaultTime + "&&user=" + user + "&&tel=" + tel + "&&email=" + email;
 }
 
 function profile() {

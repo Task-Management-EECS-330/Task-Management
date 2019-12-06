@@ -11,8 +11,12 @@
       format:"yyyy/mm/dd",
     });
     $('#endDate').datepicker();
+
     var Class = GetQueryString("class");
     var defaultTime = GetQueryString("defaultTime");
+    var user  = GetQueryString("user");
+    var tel = GetQueryString("tel");
+    var email = GetQueryString("email");
 
     var current_type = document.getElementById("type");
     if(current_type.value == Class){
@@ -49,7 +53,8 @@
         event.end_min = $("#end_min").val();
         event.type = $("#type").val();
         
-        window.location.href="weekView.html?class="+ Class + "&&defaultTime="+ defaultTime +"&&title="+event.title+"&&location="+event.location+"&&start_date="+event.start_date+"&&start_hour="+event.start_hour+"&&start_ampm="+event.start_ampm+"&&start_min="+event.start_min+
+        window.location.href="weekView.html?class="+ Class + "&&defaultTime="+ defaultTime + "&&user=" + user + "&&tel=" + tel + "&&email=" + email + 
+          "&&title="+event.title+"&&location="+event.location+"&&start_date="+event.start_date+"&&start_hour="+event.start_hour+"&&start_ampm="+event.start_ampm+"&&start_min="+event.start_min+
           "&&end_hour="+event.end_hour+"&&end_ampm="+event.end_ampm+"&&end_min="+event.end_min+"&&type="+event.type+"&&method=add";
         form.classList.add('was-validated');
       }, false)

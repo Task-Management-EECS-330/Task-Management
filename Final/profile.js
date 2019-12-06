@@ -4,37 +4,20 @@ var defaultTime = null;
 (function () {
     'use strict'
         window.addEventListener('load', function () {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation')
-            $(".required").after('<span style="color:red">*</span>');
-    
-            // Loop over them and prevent submission
-            Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                        form.classList.add('was-validated');
-                        return;
-                    }
-        
-                    var event = new Object();
-                    event.username = $("#userName").val();
-                    event.password = $("#password").val();
-                    event.rePassword = $("#rePassword").val();
-                    event.phoneNumber = $("#phoneNumber").val();
-                    event.email = $("#email").val();
-                    
-                    window.location.href="index.html?username="+event.username+"&&password="+event.password+"&&phone="+event.phoneNumber+"&&email="+event.email;
-                }, false)
-            })
-
+            
+            var user = GetQueryString("user");
+            var tel = GetQueryString("tel");
+            var email = GetQueryString("email");
+            Class = GetQueryString("class");
+            defaultTime = GetQueryString("defaultTime");
+            
+            $("#userName").val(user);
+            $("#phoneNumber").val(tel);
+            $("#email").val(email);
 
             var type = document.getElementById("type");
             var startTime = document.getElementById("startTime");
-
-            Class = GetQueryString("class");
-            defaultTime = GetQueryString("defaultTime")
+            
             if(defaultTime!="null"){
                 var start_time = defaultTime.split(":");
                 var start_hour = start_time[0];
@@ -58,6 +41,7 @@ var defaultTime = null;
                 }
             })
             
+            
         }, false)
     }())
     
@@ -80,16 +64,20 @@ var defaultTime = null;
     }
 
     function save(){
+        var user = GetQueryString("user");
+        var tel = GetQueryString("tel");
+        var email = GetQueryString("email");
         var type = $("#type").val();
         var startTime = $("#start_hour").val()+":"+$("#start_min").val()+$("#start_ampm").val();
         var url = window.location.href.split("?");
         var temp2 = url[1].split("&&")
-        if (temp2.length == 2){
+        debugger;
+        if (temp2.length == 5){
             if (type != "0"){
-                url = "weekview.html?" + "class=" + type + "&&defaultTime=" + startTime
+                url = "weekview.html?" + "class=" + type + "&&defaultTime=" + startTime + "&&user=" + user + "&&tel=" + tel + "&&email=" + email;
             }
             else{
-                url = "weekview.html?class=0&&defaultTime=null"
+                url = "weekview.html?class=0&&defaultTime=null&&user=" + user + "&&tel=" + tel + "&&email=" + email;
             }
         }
         else {
