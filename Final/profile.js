@@ -71,7 +71,6 @@ var defaultTime = null;
         var startTime = $("#start_hour").val()+":"+$("#start_min").val()+$("#start_ampm").val();
         var url = window.location.href.split("?");
         var temp2 = url[1].split("&&")
-        debugger;
         if (temp2.length == 5){
             if (type != "0"){
                 url = "weekview.html?" + "class=" + type + "&&defaultTime=" + startTime + "&&user=" + user + "&&tel=" + tel + "&&email=" + email;
