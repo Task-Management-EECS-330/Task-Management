@@ -108,35 +108,25 @@
             <div class = "mb-3">
                 <label for="repeat">Repeat Option</label>
                 <select class="custom-select d-block w-100" id="repeat" >
-                    <option value="weekly">Weekly</option>
-                    <option value="monthly">Monthly</option>
-                    <option value="none">None</option>
+                    <option value="None">None</option>
+                    <option value="Weekly">Weekly</option>
                 </select>
-            </div>
-
-            <div id = "endRepeat" class="mb-3">
-                <label for="endRepeat">End Repeat(YYYY/MM/DD)</label>
-                <div class='input-group date' id='endDate'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
             </div>
 
             <div class = "mb-3">
                 <label for="alert">Alert</label>
-                <select class="custom-select d-block w-100" id="" >
-                    <option value="">None</option>
-                    <option>Email</option>
-                    <option>Text</option>
+                <select class="custom-select d-block w-100" id="alert" >
+                    <option value="None">None</option>
+                    <option value="Email">Email</option>
+                    <option value="Text">Text</option>
                 </select>
             </div>
 
             <hr class="mb-4">
             <div class = "buttons row">
-                <input type="button" class="col-md-5 btn btn-primary btn-lg " value = "Back" onclick="back()"></button>
-                <button class="col-md-5 btn btn-primary btn-lg " type="submit">Save</button>
+                <input type="button" class="col-md-3 btn btn-primary btn-lg " value = "Back" onclick="back()"></button>
+                <input type="button" class="col-md-3 btn btn-primary btn-lg " value = "Delete" onclick="deleteTask()"></button>
+                <button class="col-md-3 btn btn-primary btn-lg " type="submit">Save</button>
             </div>
         </form>
     </div>

@@ -383,7 +383,6 @@ function addTaskToCalendar(){
 }
 
 
-
 function editTaskToCalendar(argu){
     var title = GetQueryString("title");
     var location = GetQueryString("location");

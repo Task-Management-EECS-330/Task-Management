@@ -30,8 +30,6 @@
       $("#start_ampm").val(start_ampm);
     }
 
-
-
     // Loop over them and prevent submission
     Array.prototype.filter.call(forms, function (form) {
       form.addEventListener('submit', function (event) {
@@ -51,26 +49,16 @@
         event.end_hour = $("#end_hour").val();
         event.end_ampm = $("#end_ampm").val();
         event.end_min = $("#end_min").val();
+        event.repeat = $("#repeat").val();
+        event.alert = $("#alert").val();
         event.type = $("#type").val();
         
         window.location.href="weekView.html?class="+ Class + "&&defaultTime="+ defaultTime + "&&user=" + user + "&&tel=" + tel + "&&email=" + email + 
           "&&title="+event.title+"&&location="+event.location+"&&start_date="+event.start_date+"&&start_hour="+event.start_hour+"&&start_ampm="+event.start_ampm+"&&start_min="+event.start_min+
-          "&&end_hour="+event.end_hour+"&&end_ampm="+event.end_ampm+"&&end_min="+event.end_min+"&&type="+event.type+"&&method=add";
+          "&&end_hour="+event.end_hour+"&&end_ampm="+event.end_ampm+"&&end_min="+event.end_min+"&&type="+event.type+"&&repeat="+event.repeat+"&&alert="+event.alert+"&&method=add";
         form.classList.add('was-validated');
       }, false)
     })
-      var option = document.getElementById("repeat")
-      var endRepeat = document.getElementById("endRepeat");
-
-      option.addEventListener("change", function(event){
-      
-      if(option.value == 'none'){
-          endRepeat.style.display="none";
-        }
-        else{
-          endRepeat.style.display="";
-        }
-      })
       
       current_type.addEventListener("change", function(event){
       if(current_type.value == Class){

@@ -1,60 +1,188 @@
 <html>
     <head>
-        <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="lib/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
-        <link href="lib/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="lib/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <title>Task Management</title>
+        <link rel="stylesheet" type="text/css" href="calendar.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="portlet light portlet-fit bordered calendar">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <i class=" icon-layers font-green"></i>
-                            <span class="caption-subject font-green sbold uppercase">Calendar</span>
-                        </div>
-                     </div>
-                    <div class="portlet-body">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-12">
-                                                <!-- BEGIN DRAGGABLE EVENTS PORTLET-->
-                                <h3 class="event-form-title margin-bottom-20"></h3>
-                                <div id="external-events">
-                                    <form class="inline-form">
-                                    <br/>
-                                    <a href="javascript:;" id="event_add" class="btn green" onclick="addTask()"> Add New Task </a>
-                                    <a href="javascript:;" id="log_out" class="btn" onclick="logOut()"> Log &nbspOut </a>
-                                    </form>
-                                    <hr/>
-                                    <div class="margin-bottom-10"></div>
-                                        <hr class="visible-xs" /> </div>
-                                                <!-- END DRAGGABLE EVENTS PORTLET-->
-                                    </div>
-                                    <div class="col-md-9 col-sm-12">
-                                        <div id="calendar" class="has-toolbar"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class = "Month">
+            <i class = "material-icons">event</i>
+            December
         </div>
+        <div class = "logout">
+            <a href = "index.html"> Log&nbspOut </a>
+        </div>
+        <table class = "weekCalender">
+            <tr class = "span"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr class = "week">
+                <th>Sunday</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th class = "last">Saturday</th>
 
+            <tr class = "schedule">
+                <td id="1">
+                    <div class="date" value="1"> 1</div>
+                </td>
+                <td id="2">
+                    <div class="date" value="2"> 2</div>
+                </td>
+                <td id="3">
+                    <div class="date" value="3"> 3</div>
+                </td>
+                <td id="4">
+                    <div class="date" value="4"> 4</div>
+                </td>
+                <td id="5">
+                    <div class="date" value="5"> 5</div>
+                </td>
+                <td id="6">
+                    <div class="date" value="6"> 6</div>
+                </td>
+                <td id="7" class = "last">
+                    <div class="date" value="7"> 7</div>
+                </td>
+            </tr>
+            
+
+            </tr>
+            <tr class = "schedule">
+                <td id="8">
+                    <div class="date"> 8</div>
+                    <div class="task type1" start_date="2019/12/08" id="task01" from="9:00 AM" to="9:50 AM" name="Meeting" location="Norris Center" note="" type="1" repeat="None" alert="None">
+                        9:00 AM Meeting
+                    </div>
+                    <div class="task type2" start_date="2019/12/08" id="task02" from="10:00 AM" to="10:50 AM" name="Project" location="Norris Center" note="" type="2" repeat="None" alert="None">
+                        10:00 AM Project
+                    </div>
+                </td>
+                <td id="9">
+                    <div class="date" value="9"> 9</div>
+                    <div class="task type3" id="task03" from="3:00 PM" to="3:50 PM" name="Course" location="Mudd" note="" type="3">
+                        3:00 PM Course
+                    </div>
+                </td>            
+                <td id="10">
+                    <div class="date" value="10"> 10</div>
+                    <div class="task type2" id="task04" from="7:00 AM" to="9:50 AM" name="Project" location="Norris Center" note="" type="2">
+                        7:00 AM Project
+                    </div>
+                    <div class="task type4" id="task05" from="8:00 PM" to="10:50 PM" name="Party" location="Home" note="Birthday Party" type="4">
+                        8:00 PM Party
+                    </div>
+                </td>
+                <td id = "11">
+                    <div class="date" value="11"> 11</div>
+                    <div class="task type3" id="task06" from="11:00 AM" to="12:30 PM" name="Course" location="Technological Institute AUD" note="Reading Quiz" type="3">
+                        11:00 AM Course
+                    </div>
+                    <div class="task type2" id="task07" from="3:00 PM" to="4:00 PM" name="Project" location="Norris Center" note="" type="2">
+                        3:00 PM Project
+                    </div>
+                    <div class="task type1" id="task08" from="4:45 PM" to="6:00 PM" name="Meeting" location="Mudd" note="For P.7" type="1">
+                        4:45 PM Meeting
+                    </div>
+                </td>
+                <td id="12">
+                    <div class="date" value="12"> 12</div>
+                    <div class="task type3" id="task09" from="12:00 PM" to="12:50 PM" name="Course" location="Mudd" note="" type="3">
+                        12:00 PM Course
+                    </div>
+                    <div class="task type5" id="task10" from="5:00 PM" to="6:50 PM" name="Family" location="Office" note="" type="5">
+                        5:00 PM Family
+                    </div>
+                </td>
+                <td id="13">
+                    <div class="date" value="13"> 13</div>
+                    <div class="task type1" id="task11" from="9:00 AM" to="10:50 AM" name="Meeting" location="Office" note="" type="1">
+                        9:00 AM Meeting
+                    </div>
+                    <div class="task type3" id="task12" from="3:00 PM" to="3:50 PM" name="Course" location="Mudd" note="" type="3">
+                        3:00 PM Course
+                    </div>
+                    <div class="task type4" id="task13" from="8:00 PM" to="11:50 PM" name="Party" location="Home" note="" type="4">
+                        8:00 PM Party
+                    </div>
+                </td>
+                <td id="14" class = "last">
+                    <div class="date" value="14"> 14</div>
+                    <div class="task type5" id="task14" from="12:00 AM" to="1:00 AM" name="Family" location="Home" note="" type="5">
+                        12:00 AM Family
+                    </div>
+                    <div class="task type5" id="task15" from="7:00 PM" to="7:50 PM" name="Family" location="Home" note="" type="5">
+                        7:00 PM Family
+                    </div>
+                </td>
+            </tr>
+
+            <tr class = "schedule">
+                <td id="15">
+                    <div class="date" value="15"> 15</div>
+                </td>
+                <td id="16">
+                    <div class="date" value="16"> 16</div>
+                </td>
+                <td id="17">
+                    <div class="date" value="17"> 17</div>
+                </td>
+                <td id="18">
+                    <div class="date" value="18"> 18</div>
+                </td>
+                <td id="19">
+                   <div class="date" value="19"> 19</div>
+                </td>
+                <td id="20">
+                   <div class="date" value="20"> 20</div>
+                </td>
+                <td id="21" class = "last">
+                   <div class="date" value="21"> 21</div>
+                </td>
+            </tr>
+            
+            <tr class = "schedule">
+                <td id="22"> 
+                   <div class="date" value="22"> 22</div>
+                </td>
+                <td id="23">
+                   <div class="date" value="23"> 23</div>
+                </td>
+                <td id="24">
+                   <div class="date" value="24"> 24</div>
+                </td>
+                <td id="25">
+                   <div class="date" value="25"> 25</div>
+                </td>
+                <td id="26">
+                   <div class="date" value="26"> 26</div>
+                </td>
+                <td id="27">
+                   <div class="date" value="27"> 27</div>
+                </td>
+                <td id="28" class = "last">
+                   <div class="date" value="28"> 28</div>
+                </td>
+            </tr>
+            
+            <tr class = "schedule">
+                <td id="29">
+                   <div class="date" value="29"> 29</div>
+                </td>
+                <td id="30">
+                   <div class="date" value="30"> 30</div>
+                </td>
+                <td id="31">
+                   <div class="date" value="31"> 31</div>
+                </td>
+                <td></td><td></td><td></td><td class = "last"></td>
+            </tr>
+        </table>
         <script src="lib/jquery.min.js" type="text/javascript"></script>
         <script src="lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="lib/app.min.js" type="text/javascript"></script>
-        <script src="lib/moment.min.js" type="text/javascript"></script>
-        <script src="lib/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
         <script src="lib/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-        <script src="lib/calendar.min.js" type="text/javascript"></script>
-        <script>
+        <script src="calendar.js"></script>
 
-            function logOut(){
-                window.location.href="index.html";
-            }
-        </script>
-    </body>
+   </body>
 </html>

@@ -37,7 +37,7 @@ tr .last{
 }
 
 .task{
-    max-width : 145.7px;
+    max-width : 160px;
     height:4.2%;
     border-radius: 5px; 
     text-overflow: ellipsis;
@@ -276,7 +276,7 @@ tr .last{
 
 .weekChange i{
     position: relative;
-    margin-top:-3%;
+    margin-top:-1%;
 }
 
 .weekChange:hover{
@@ -298,4 +298,14 @@ tr .last{
 
 .nextWeek i{
     float:right;
+}
+
+.logout{
+    color: rebeccapurple;
+    position: absolute;
+    border-radius: 50px;
+    background: #fff;
+    margin-top:1%;
+    margin-left:5%;
+    line-height: 40px;
 }

@@ -9,6 +9,9 @@
       var to = GetQueryString("to");
       var type = GetQueryString("type");
       var id = GetQueryString("id");
+      var start_date = GetQueryString("start_date");
+      var repeat = GetQueryString("repeat");
+      var alert = GetQueryString("alert");
 
       var start_time = from.split(' ');
       var start_ampm = start_time[1];
@@ -30,9 +33,11 @@
       $("#start_min").val(start_min);
       $("#start_ampm").val(start_ampm);
       $("#end_hour").val(end_hour);
-        $("#end_ampm").val(end_ampm);
-        $("#end_min").val(end_min);
-
+      $("#end_ampm").val(end_ampm);
+      $("#end_min").val(end_min);
+      $("#startDate").val(start_date);
+      $("#alert").val(alert);
+      $("#repeat").val(repeat);
 
       var forms = document.getElementsByClassName('needs-validation')
       $(".required").after('<span style="color:red">*</span>');
@@ -62,6 +67,8 @@
           event.end_ampm = $("#end_ampm").val();
           event.end_min = $("#end_min").val();
           event.type = $("#type").val();
+          event.alert = $("#alert").val();
+          event.repeat = $("#repeat").val();
 
           var Class = GetQueryString("class");
           var defaultTime = GetQueryString("defaultTime");
@@ -71,21 +78,9 @@
 
           window.location.href="weekView.html?class="+ Class + "&&defaultTime="+ defaultTime + "&&user=" + user + "&&tel=" + tel + "&&email=" + email + 
             "&&title="+event.title+"&&location="+event.location+"&&start_date="+event.start_date+"&&start_hour="+event.start_hour+"&&start_ampm="+event.start_ampm+"&&start_min="+event.start_min+
-            "&&end_hour="+event.end_hour+"&&end_ampm="+event.end_ampm+"&&end_min="+event.end_min+"&&type="+event.type+"&&id="+id+"&&method=edit";
+            "&&end_hour="+event.end_hour+"&&end_ampm="+event.end_ampm+"&&end_min="+event.end_min+"&&type="+event.type+"&&repeat="+event.repeat+ "&&alert="+event.alert+"&&id="+id+"&&method=edit";
           form.classList.add('was-validated');
         }, false)
-      })
-        var option = document.getElementById("repeat")
-        var endRepeat = document.getElementById("endRepeat");
-  
-        option.addEventListener("change", function(event){
-        
-          if(option.value == 'none'){
-            endRepeat.style.display="none";
-          }
-          else{
-            endRepeat.style.display="";
-          }
       })
     }, false)
 }())
@@ -100,4 +95,9 @@ function GetQueryString(name)
 function back(){
   var href = window.location.href.split("?")[1];
   window.location.href="weekView.html?" + href;
+}
+
+function deleteTask(){
+  var href = window.location.href.split("?")[1];
+  window.location.href="weekView.html?" + href + "&&method=delete";
 }

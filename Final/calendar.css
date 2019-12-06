@@ -1,0 +1,127 @@
+.weekCalender{ 
+    width: 80%;
+    height: 80%;
+    margin-left:10%;
+    margin-top:5%;
+    background: #fff;
+    border-radius:5px;
+    border: 1px solid #d0d0d0;
+    box-shadow:-5px 5px 10px #adadad;
+}
+.schedule td{
+    color : #fff;
+    border-right: 1px solid #E0E0E0;
+    border-top: 1px solid #E0E0E0;
+    width : 14.28%;
+    vertical-align: top;
+    font-size:15px;
+    text-align: center;
+    line-height: 24px;
+}
+
+.schedule td:hover{
+    box-shadow: 5px 5px 15px #adadad;
+    cursor: pointer;
+}
+
+.weekCalender th{
+    color : rebeccapurple;
+    vertical-align:top;
+    height: 6%;
+    text-align: center;
+    border-right: 1px solid #E0E0E0;
+}
+.span{
+    height: 2%;
+}
+
+.schedule{
+    height : 18.4%;
+}
+
+tr .last{
+    border-right: 0px solid #E0E0E0;
+}
+
+.task{
+    width : 100%;
+    height : 22%;
+    border-radius: 5px; 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size:14px;
+    margin-bottom: 1px;
+}
+
+.type1{
+    background-color:#FF6666;
+    border-color:#FF6666;
+}
+.type2{
+    background-color:#00CC99;
+    border-color:#00CC99;
+}
+.type3{
+    background-color:#FFCC33;
+    border-color:#FFCC33;
+}
+.type4{
+    background-color:#CC66FF;
+    border-color:#CC66FF;
+}
+.type5{
+    background-color:#6666FF;
+    border-color:#6666FF;
+}
+
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.Month{
+    color: #fff;
+    position: absolute;
+    height: 5%;
+    width: 10%;
+    font-size: 16px;
+    border-radius: 5px;
+    background: rebeccapurple;
+    margin-top:-3%;
+    margin-left:10%;
+    line-height: 40px;
+}
+
+.Month i{
+    position: relative;
+    float:left;
+    margin-top:5%;
+    margin-left:3%;
+    margin-right:10%;
+}
+
+.date{
+    width:100%;
+    height:20%;
+    text-align: right;
+    color:#000;
+}
+
+.logout{
+    color: rebeccapurple;
+    position: absolute;
+    border-radius: 50px;
+    background: #fff;
+    margin-top:1%;
+    margin-left:5%;
+    line-height: 40px;
+}

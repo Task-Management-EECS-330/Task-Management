@@ -11,18 +11,21 @@
         </div>
         <div class = "profile" onclick="profile()">
                 <i class = "material-icons">perm_identity</i>
-            </div>
+        </div>
+        <div class = "logout">
+            <a href = "index.html"> Log&nbspOut </a>
+        </div>
         <div class = "month" onclick="monthview()">
                 <i class = "material-icons">event</i>
                 Month
         </div>
         <div class = "weekChange previousWeek" onclick="weekChange(0)">
-            Previous
+            Last Week
             <i class = "material-icons">keyboard_arrow_left</i>
         </div>
         <div class = "weekChange nextWeek" onclick="weekChange(1)">
             <i class = "material-icons">keyboard_arrow_right</i>
-            Next
+            Next Week
         </div>
         <table class = "weekCalender" id="week0" hidden>
             <tr class = "span"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -70,62 +73,62 @@
             </tr>
             <tr class = "schedule">
                 <td>
-                    <div class="task type1" id="task01" style="margin-top:213.66px;" from="9:00 AM" to="9:50 AM" name="Meeting" location="Norris Center" note="" type="1">
+                    <div class="task type1" id="task01" style="margin-top:213.66px;" start_date="2019/12/08" from="9:00 AM" to="9:50 AM" name="Meeting" location="Norris Center" note="" repeat= "None" alert = "None" type="1">
                         9:00 AM Meeting
                     </div>
-                    <div class="task type2" id="task02" from="10:00 AM" to="10:50 AM" name="Project" location="Norris Center" note="" type="2">
+                    <div class="task type2" id="task02" start_date="2019/12/08" from="10:00 AM" to="10:50 AM" name="Project" location="Norris Center" note="" repeat= "None" alert = "None" type="2">
                         10:00 AM Project
                     </div>
                 </td>
                 <td>
-                    <div class="task type3" id="task03" style="margin-top:356.1px;" from="3:00 PM" to="3:50 PM" name="Course" location="Mudd" note="" type="3">
+                    <div class="task type3" id="task03" start_date="2019/12/09" style="margin-top:356.1px;" from="3:00 PM" to="3:50 PM" name="Course" location="Mudd" note="" repeat= "None" alert = "None" type="3">
                         3:00 PM Course
                     </div>
                 </td>
                 <td>
-                    <div class="task type2" id="task04" style="margin-top:166.18px;" from="7:00 AM" to="9:50 AM" name="Project" location="Norris Center" note="" type="2">
+                    <div class="task type2" id="task04" start_date="2019/12/10" style="margin-top:166.18px;" from="7:00 AM" to="9:50 AM" name="Project" location="Norris Center" note="" repeat= "None" alert = "None" type="2">
                         7:00 AM Project
                     </div>
-                    <div class="task type4" id="task05" style="margin-top:284.88px;" from="8:00 PM" to="10:50 PM" name="Party" location="Home" note="Birthday Party" type="4">
+                    <div class="task type4" id="task05" start_date="2019/12/10" style="margin-top:284.88px;" from="8:00 PM" to="10:50 PM" name="Party" location="Home" note="Birthday Party" repeat= "None" alert = "None" type="4">
                         8:00 PM Party
                     </div>
                 </td>
                 <td>
-                    <div class="task type3" id="task06" style="margin-top:261.14px;" from="11:00 AM" to="12:30 PM" name="Course" location="Technological Institute AUD" note="Reading Quiz" type="3">
+                    <div class="task type3" id="task06" start_date="2019/12/11" style="margin-top:261.14px;" from="11:00 AM" to="12:30 PM" name="Course" location="Technological Institute AUD" note="Reading Quiz" repeat= "None" alert = "Text" type="3">
                         11:00 AM Course
                     </div>
-                    <div class="task type2" id="task07" style="margin-top:71.22px;" from="3:00 PM" to="4:00 PM" name="Project" location="Norris Center" note="" type="2">
+                    <div class="task type2" id="task07" start_date="2019/12/11" style="margin-top:71.22px;" from="3:00 PM" to="4:00 PM" name="Project" location="Norris Center" note="" repeat= "None" alert = "None" type="2">
                         3:00 PM Project
                     </div>
-                    <div class="task type1" id="task08" style="margin-top:10.68px;" from="4:45 PM" to="6:00 PM" name="Meeting" location="Mudd" note="For P.7" type="1">
+                    <div class="task type1" id="task08" start_date="2019/12/11" style="margin-top:10.68px;" from="4:45 PM" to="6:00 PM" name="Meeting" location="Mudd" note="For P.7" repeat= "None" alert = "None" type="1">
                         4:45 PM Meeting
                     </div>
                 </td>
                 <td>
-                    <div class="task type3" id="task09" style="margin-top:284.88px;" from="12:00 PM" to="12:50 PM" name="Course" location="Mudd" note="" type="3">
+                    <div class="task type3" id="task09" start_date="2019/12/12" style="margin-top:284.88px;" from="12:00 PM" to="12:50 PM" name="Course" location="Mudd" note="" repeat= "None" alert = "None" type="3">
                         12:00 PM Course
                     </div>
-                    <div class="task type5" id="task10" style="margin-top:94.96px;" from="5:00 PM" to="6:50 PM" name="Appointment" location="Office" note="" type="5">
-                        5:00 PM Appointment
+                    <div class="task type5" id="task10" start_date="2019/12/12" style="margin-top:94.96px;" from="5:00 PM" to="6:50 PM" name="Family" location="Office" note="" repeat= "None" alert = "None" type="5">
+                        5:00 PM Family
                     </div>
                 </td>
                 <td>
-                    <div class="task type1" id="task11" style="margin-top:213.66px;" from="9:00 AM" to="10:50 AM" name="Meeting" location="Office" note="" type="1">
+                    <div class="task type1" id="task11" style="margin-top:213.66px;" start_date="2019/12/13" from="9:00 AM" to="10:50 AM" name="Meeting" location="Office" note="" repeat= "None" alert = "None" type="1">
                         9:00 AM Meeting
                     </div>
-                    <div class="task type3" id="task12" style="margin-top:118.7px;" from="3:00 PM" to="3:50 PM" name="Course" location="Mudd" note="" type="3">
+                    <div class="task type3" id="task12" style="margin-top:118.7px;" start_date="2019/12/13" from="3:00 PM" to="3:50 PM" name="Course" location="Mudd" note="" repeat= "None" alert = "None" type="3">
                         3:00 PM Course
                     </div>
-                    <div class="task type4" id="task13" style="margin-top:94.96px;" from="8:00 PM" to="11:50 PM" name="Party" location="Home" note="" type="4">
+                    <div class="task type4" id="task13" style="margin-top:94.96px;" start_date="2019/12/13" from="8:00 PM" to="11:50 PM" name="Party" location="Home" note="" repeat= "None" alert = "None" type="4">
                         8:00 PM Party
                     </div>
                 </td>
                 <td class = "last">
-                    <div class="task type5" id="task14" style="margin-top:0;" from="12:00 AM" to="1:00 AM" name="Appointment" location="Home" note="" type="5">
-                        12:00 AM Appointment
+                    <div class="task type5" id="task14" style="margin-top:0;" start_date="2019/12/14" from="12:00 AM" to="1:00 AM" name="Family" location="Home" note="" repeat= "None" alert = "None" type="5">
+                        12:00 AM Family
                     </div>
-                    <div class="task type5" id="task15" style="margin-top:427.32px;" from="7:00 PM" to="7:50 PM" name="Appointment" location="Home" note="" type="5">
-                        7:00 PM Appointment
+                    <div class="task type5" id="task15" style="margin-top:427.32px;" start_date="2019/12/14" from="7:00 PM" to="7:50 PM" name="Family" location="Home" note="" repeat= "None" alert = "None" type="5">
+                        7:00 PM Family
                     </div>
                 </td>
             </tr>
